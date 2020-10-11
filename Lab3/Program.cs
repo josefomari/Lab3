@@ -7,13 +7,12 @@ namespace Lab3
     {
         static void Main(string[] args)
         {
-            /* Gör detta som main senare
-              var fs = new FileStream(args[0], FileMode.Open);
-            */
-
+            
+            //Input image
             var imagePath = args[0];
             bool isPng = false;
             bool isBmp = false;
+
 
             var png = new byte[] { 0x89, 0x50, 0x4e, 0x47, 0x0D, 0x0A, 0x1A, 0x0A };   // PNG
             var bmp = new byte[] { 0x42, 0x4D }; // BMP
@@ -23,7 +22,7 @@ namespace Lab3
                 Console.WriteLine("File not found");
                 return;
             }
-            // var fs = new FileStream(@"C:\Users\josef\Desktop\lab3filer\amongus.png", FileMode.Open);
+            
 
             var fs = new FileStream(imagePath, FileMode.Open);
             var fileSize = (int)fs.Length;
