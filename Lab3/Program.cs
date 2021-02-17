@@ -66,6 +66,11 @@ namespace Lab3
 
             if (isPng == true)
             {
+                /*Eftersom png signaturen alltid är lika stor (8bytes) och att width och height alltid finns i IHDR datan (8bytes in i IHDR)
+                  så vet jag direkt att width är på index 16-19
+                  och att height är på index 20-23
+                */
+
                 var widthHexa = data[16].ToString("X2") + data[17].ToString("X2") +
                                 data[18].ToString("X2") + data[19].ToString("X2");
 
@@ -112,6 +117,8 @@ namespace Lab3
             }
             else if (isBmp == true)
             {
+                // Fick googla mig framåt vart width och height datan låg, samt så måste man läsa av hexan baklänges här tydligen
+
                 var widthHexa = data[21].ToString("X2") + data[20].ToString("X2") +
                                 data[19].ToString("X2") + data[18].ToString("X2");
 
